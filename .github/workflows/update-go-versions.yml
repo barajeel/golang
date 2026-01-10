@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Execute bash script
         run: bash update-go-version.bash
@@ -22,7 +22,7 @@ jobs:
       # no pull request will be created and the action exits silently.
       - name: Create a Pull Request
         if: github.event_name != 'pull_request'
-        uses: peter-evans/create-pull-request@dd2324fc52d5d43c699a5636bcf19fceaa70c284 # v7.0.7
+        uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Update Go Collector metrics for new Go version"
