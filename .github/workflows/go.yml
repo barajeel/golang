@@ -23,7 +23,7 @@ jobs:
         supported_versions: ${{ steps.matrix.outputs.supported_versions }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - name: Read supported_go_versions.txt
         id: matrix
         run: |
@@ -42,16 +42,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Set up Go ${{ matrix.go_version }}
-        uses: actions/setup-go@v5.3.0
+        uses: actions/setup-go@v6.5.0
         with:
           go-version: ${{ matrix.go_version }}
 
       - name: Cache Go modules
         id: cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/go/pkg/mod
           key: v1-go${{ matrix.go_version }}
